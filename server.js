@@ -9,6 +9,7 @@ const dbo = require("./db/conn");
 app.use(cors())
 app.use(express.json());
 app.use(require('./routes/users'));
+app.use(require('./routes/tmdb'));
 
 app.listen(port, () => {
     dbo.connectToServer(function(err){

@@ -1,7 +1,6 @@
 const express = require("express");
 const recordRoutes = express.Router();
-const ObjectId = require("mongodb").ObjectId;
-const dbo = require("../db/conn")
+const dbo = require("../db/conn");
 
 recordRoutes.get("/users", async function(req, res) {
     
