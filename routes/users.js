@@ -60,14 +60,19 @@ recordRoutes.put("/users/profile", async function(req, res) {
     const myQuery = {login: req.body.login};
 
     let profile = await dbo.getDB().collection("Users").findOne(myQuery);
-    if (profile == undefined){
-        res.status(404).send("User not found")
+    if (profile == undefined) {
+        res.status(404).send("User not found");
         return
-    }
-
+    };
+    if (req.body.oldPassword != undefined && profile.password != req.body.oldPassword) {
+        res.status(400).send("Wrong password");
+        return
+    };
+    const password = req.body.newPassword == undefined? profile.password: req.body.newPassword;
+    
     const newProfile = {
         "$set": {
-            password: req.body.password || profile.password,
+            password: password,
             mail: req.body.mail || profile.mail,
             phone: req.body.phone || profile.phone
         }
