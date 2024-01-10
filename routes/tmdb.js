@@ -22,4 +22,15 @@ recordRoutes.get("/tmdb/movies/popular", async function(req, res) {
     res.status(200).send(result);
 })
 
+recordRoutes.get("/tmdb/movies/:id", async function(req, res) {
+    
+    const id = req.params.id;
+
+    let result = await dbo.getDB().collection("TMDB").aggregate([
+        { $match: { _id: new ObjectId(id)}}
+        ]).toArray();
+
+    result.length === 0? res.status(404).send("Movie not found"): res.status(200).send(result);
+})
+
 module.exports = recordRoutes;
