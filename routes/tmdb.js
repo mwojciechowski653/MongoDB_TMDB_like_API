@@ -8,7 +8,7 @@ recordRoutes.get("/tmdb", async function(req, res) {
     let result = await dbo.getDB().collection("TMDB").find({}).limit(5).toArray();
 
     res.status(200).send(result);
-})
+});
 
 recordRoutes.get("/tmdb/movies/popular", async function(req, res) {
     
@@ -19,10 +19,10 @@ recordRoutes.get("/tmdb/movies/popular", async function(req, res) {
         { $limit: 5}
         ]).then(result2 => {return result2.toArray()}).catch(err => res.send(err));
     res.status(200).send(result);
-})
+});
 
-recordRoutes.get("/tmdb/movies/search", async function(req, res) {
-    
+recordRoutes.get("/tmdb/movies/search", async function(req, res) { 
+
     const searchData = {
         title: req.body.title || "NG",
         genres: req.body.genres || "NG",
@@ -97,7 +97,7 @@ recordRoutes.get("/tmdb/movies/search", async function(req, res) {
 
     // result.length === 0? res.status(404).send("Nothing suits your search-data"): res.status(200).send(result);
 
-})
+});
 
 recordRoutes.get("/tmdb/movies/genres", async function(req, res) {
     
@@ -112,7 +112,7 @@ recordRoutes.get("/tmdb/movies/genres", async function(req, res) {
         ]).toArray();
 
     res.status(200).send(result);
-})
+});
 
 recordRoutes.get("/tmdb/movies/:id", async function(req, res) {
     
@@ -123,6 +123,6 @@ recordRoutes.get("/tmdb/movies/:id", async function(req, res) {
         ]).toArray();
 
     result.length === 0? res.status(404).send("Movie not found"): res.status(200).send(result);
-})
+});
 
 module.exports = recordRoutes;

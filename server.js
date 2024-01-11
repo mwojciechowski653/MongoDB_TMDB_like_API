@@ -10,6 +10,7 @@ app.use(cors())
 app.use(express.json());
 app.use(require('./routes/users'));
 app.use(require('./routes/tmdb'));
+app.use(require('./routes/watchlist'));
 
 app.listen(port, () => {
     dbo.connectToServer(function(err){

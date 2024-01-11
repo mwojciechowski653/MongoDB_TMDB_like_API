@@ -7,7 +7,7 @@ recordRoutes.get("/users", async function(req, res) {
     let result = await dbo.getDB().collection("Users").find({}).toArray();
 
     res.status(200).send(result);
-})
+});
 
 recordRoutes.post("/users/register", async function(req, res) {
 
@@ -45,7 +45,9 @@ recordRoutes.post("/users/login", async function(req, res) {
 
 recordRoutes.get("/users/profile", async function(req, res) {
     
-    const myQuery = {login: req.body.login};
+    const { login } = req.query;
+
+    const myQuery = {login: login};
     const options = {
         projection: {_id: 0, sex: 0, birth: 0}
     };
@@ -53,7 +55,7 @@ recordRoutes.get("/users/profile", async function(req, res) {
     let result = await dbo.getDB().collection("Users").find(myQuery, options).toArray();
 
     result.length === 0? res.status(404).send("User not found"): res.status(200).send(result);
-})
+});
 
 recordRoutes.put("/users/profile", async function(req, res) {
     
@@ -81,6 +83,6 @@ recordRoutes.put("/users/profile", async function(req, res) {
 
     await dbo.getDB().collection("Users").updateOne(myQuery, newProfile)
     res.status(200).send("Your profile-info is succesfully updated");
-})
+});
 
 module.exports = recordRoutes;
