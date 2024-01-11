@@ -31,7 +31,7 @@ recordRoutes.post("/watchlist", async function(req, res) {
 
     const searchedMovie = await dbo.getDB().collection("TMDB").aggregate([
         { $match: {title: title}},
-        { $project: {_id: 0, title: 1, genres: 1, plot: 1}}
+        { $project: {_id: 0, title: 1}}
     ]).toArray();
 
     if (searchedMovie.length === 0) {

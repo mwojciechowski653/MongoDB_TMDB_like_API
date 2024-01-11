@@ -25,11 +25,11 @@ recordRoutes.get("/tmdb/movies/search", async function(req, res) {
 
     const searchData = {
         title: req.body.title || "NG",
-        genres: req.body.genres || "NG",
+        genres: req.body.genres || ["NG"],
         year: req.body.year || "NG",
-        cast: req.body.cast || "NG",
+        cast: req.body.cast || ["NG"],
         runtime: req.body.runtime || "NG",
-        directors: req.body.directors || "NG"
+        directors: req.body.directors || ["NG"]
     };
 
     console.log(searchData);
@@ -39,11 +39,11 @@ recordRoutes.get("/tmdb/movies/search", async function(req, res) {
     let result2 = [] 
     let res1 = await dbo.getDB().collection("TMDB").aggregate([{ $match: {title: searchData.title}},{ $project: {genres: 1, title: 1, year: 1, cast: 1, runtime: 1, directors: 1}},{ $limit: 10}]).toArray();
     result2.push(res1)
-    let res2 = await dbo.getDB().collection("TMDB").aggregate([{ $match: {cast: {$all: [searchData.cast]}}},{ $project: {genres: 1, title: 1, year: 1, cast: 1, runtime: 1, directors: 1}},{ $limit: 10}]).toArray();
+    let res2 = await dbo.getDB().collection("TMDB").aggregate([{ $match: {cast: {$all: searchData.cast}}},{ $project: {genres: 1, title: 1, year: 1, cast: 1, runtime: 1, directors: 1}},{ $limit: 10}]).toArray();
     result2.push(res2)
-    let res3 = await dbo.getDB().collection("TMDB").aggregate([{ $match: {directors: {$all: [searchData.directors]}}},{ $project: {genres: 1, title: 1, year: 1, cast: 1, runtime: 1, directors: 1}},{ $limit: 10}]).toArray();
+    let res3 = await dbo.getDB().collection("TMDB").aggregate([{ $match: {directors: {$all: searchData.directors}}},{ $project: {genres: 1, title: 1, year: 1, cast: 1, runtime: 1, directors: 1}},{ $limit: 10}]).toArray();
     result2.push(res3)
-    let res4 = await dbo.getDB().collection("TMDB").aggregate([{ $match: {genres: {$all: [searchData.genres]}}},{ $project: {genres: 1, title: 1, year: 1, cast: 1, runtime: 1, directors: 1}},{ $limit: 10}]).toArray();
+    let res4 = await dbo.getDB().collection("TMDB").aggregate([{ $match: {genres: {$all: searchData.genres}}},{ $project: {genres: 1, title: 1, year: 1, cast: 1, runtime: 1, directors: 1}},{ $limit: 10}]).toArray();
     result2.push(res4)
     let res5 = await dbo.getDB().collection("TMDB").aggregate([{ $match: {year: searchData.year}},{ $project: {genres: 1, title: 1, year: 1, cast: 1, runtime: 1, directors: 1}},{ $limit: 10}]).toArray();
     result2.push(res5)
