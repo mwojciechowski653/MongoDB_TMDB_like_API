@@ -17,8 +17,7 @@ recordRoutes.get("/tmdb/movies/popular", async function(req, res) {
             popularity: {$round: [{$multiply: [ {$toDouble: "$imdb.rating"}, {$toInt: "$imdb.votes"} ]}, 0]} }},
         { $sort: {popularity: -1}},
         { $limit: 5}
-        ]).toArray();
-
+        ]).then(result2 => {return result2.toArray()}).catch(err => res.send(err));
     res.status(200).send(result);
 })
 
@@ -86,7 +85,7 @@ recordRoutes.get("/tmdb/movies/search", async function(req, res) {
     //     return [acc]
     // }, []);
     // console.log(result)
-    
+
     let finalResult = result2.flat().slice(0,10);
     finalResult.length === 0? res.status(404).send("Nothing suits your search-data"): res.status(200).send(finalResult);
 
@@ -98,6 +97,21 @@ recordRoutes.get("/tmdb/movies/search", async function(req, res) {
 
     // result.length === 0? res.status(404).send("Nothing suits your search-data"): res.status(200).send(result);
 
+})
+
+recordRoutes.get("/tmdb/movies/genres", async function(req, res) {
+    
+    let result = await dbo.getDB().collection("TMDB").aggregate([
+        { $project: { _id:0, genres:1}},
+        { $unwind: "$genres"},
+        { $group: {
+            _id: "$genres",
+            count: { $sum: 1 }
+        }},
+        { $sort: { count: -1}}
+        ]).toArray();
+
+    res.status(200).send(result);
 })
 
 recordRoutes.get("/tmdb/movies/:id", async function(req, res) {
