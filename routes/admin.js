@@ -181,4 +181,40 @@ recordRoutes.put("/admin/movies/:movieId", async function(req, res) {
     .catch(err => res.status(418).send(err));
 });
 
+recordRoutes.delete("/admin/movies/:movieId", async function(req, res) {
+
+    const movieId = req.params.movieId;
+
+    const myQuery = {
+        login: req.body.login,
+        password: req.body.password,
+        status: "Admin"
+    };
+
+    const dataCheck = await dbo.getDB().collection("Users").find(myQuery).toArray();
+
+    if (dataCheck.length === 0){
+        res.status(403).send("Access denied");
+        return
+    };
+
+    const myQuery2 = {
+        _id: new ObjectId(movieId) 
+    };
+
+    const dataCheckVol2 = await dbo.getDB().collection("TMDB").find(myQuery2).toArray();
+
+    if (dataCheckVol2.length == 0){
+        res.status(404).send("Movie not found");
+        return
+    }; 
+    
+    dbo.getDB().collection("TMDB").deleteOne(myQuery2)
+    .then(result => {
+        res.status(200).send(`Movie was deleted`);
+    })
+    .catch(err => res.status(418).send(err));
+
+});
+
 module.exports = recordRoutes;
