@@ -64,6 +64,30 @@ recordRoutes.post("/playlists", async function(req, res) {
     }).catch(err => res.status(421).send("Something went wrong"));
 });
 
+recordRoutes.delete("/playlists/:playlistsId", async function(req, res) {
 
+    const playlistsId = req.params.playlistsId;
+
+    const foundedPlaylist = await dbo.getDB().collection("Playlists").aggregate([
+        { $match: {_id: new ObjectId(playlistsId)}},
+        { $project: {name: 1}}
+    ]).toArray();
+
+    if (foundedPlaylist.length === 0) {
+        res.status(404).send("Playlist not found");
+        return
+    };
+
+    console.log(foundedPlaylist);
+
+    const myQuery = {_id: new ObjectId(playlistsId)};
+    const myPlaylistsName = foundedPlaylist[0].name;
+
+    dbo.getDB().collection("Playlists").deleteOne(myQuery).then(result => {
+        res.status(200).send(`\"${myPlaylistsName}\" was deleted!`);
+        return
+    }).catch(err => res.status(418).send("Something went wrong"));
+
+})
 
 module.exports = recordRoutes;
