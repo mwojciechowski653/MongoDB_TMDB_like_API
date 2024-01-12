@@ -64,6 +64,8 @@ recordRoutes.post("/playlists", async function(req, res) {
     }).catch(err => res.status(421).send("Something went wrong"));
 });
 
+
+
 recordRoutes.delete("/playlists/:playlistsId", async function(req, res) {
 
     const playlistsId = req.params.playlistsId;
