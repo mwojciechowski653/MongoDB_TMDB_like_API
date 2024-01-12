@@ -1,9 +1,10 @@
 const express = require("express");
 const recordRoutes = express.Router();
+const ObjectId = require("mongodb").ObjectId;
 const dbo = require("../db/conn");
 
 recordRoutes.get("/users", async function(req, res) {
-    
+
     let result = await dbo.getDB().collection("Users").find({}).toArray();
 
     res.status(200).send(result);
@@ -17,7 +18,12 @@ recordRoutes.post("/users/register", async function(req, res) {
         sex: req.body.sex,
         mail: req.body.mail,
         phone: req.body.phone,
-        birth: new Date(req.body.birth)
+        birth: new Date(req.body.birth),
+        stats: {
+            views: 0,
+            genres: [],
+            watchtime: 0
+        }
     };
     const myQuery = {login: req.body.login};
 
@@ -84,5 +90,17 @@ recordRoutes.put("/users/profile", async function(req, res) {
     await dbo.getDB().collection("Users").updateOne(myQuery, newProfile)
     res.status(200).send("Your profile-info is succesfully updated");
 });
+
+recordRoutes.get("/users/:userId/stats", async function(req,res) {
+
+    const userId = req.params.userId;
+
+    const result = await dbo.getDB().collection("Users").aggregate([
+        { $match: {_id: new ObjectId(userId)}},
+        { $project: {_id: 0, stats: 1}}
+    ]).toArray();
+
+    result.length === 0? res.status(404).send("User not found"): res.status(200).send(result);
+})
 
 module.exports = recordRoutes;
