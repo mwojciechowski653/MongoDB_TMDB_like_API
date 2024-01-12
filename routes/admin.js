@@ -125,4 +125,60 @@ recordRoutes.post("/admin/movies", async function(req, res) {
     .catch(err => res.status(418).send(err));
 });
 
+recordRoutes.put("/admin/movies/:movieId", async function(req, res) {
+
+    const movieId = req.params.movieId;
+
+    const myQuery = {
+        login: req.body.login,
+        password: req.body.password,
+        status: "Admin"
+    };
+
+    const dataCheck = await dbo.getDB().collection("Users").find(myQuery).toArray();
+
+    if (dataCheck.length === 0){
+        res.status(403).send("Access denied");
+        return
+    };
+
+    const myQuery2 = {
+        _id: new ObjectId(movieId) 
+    };
+
+    const dataCheckVol2 = await dbo.getDB().collection("TMDB").find(myQuery2).toArray();
+
+    if (dataCheckVol2.length == 0){
+        res.status(404).send("Movie not found");
+        return
+    };  
+
+    console.log(dataCheckVol2)
+
+    const currentMovie = dataCheckVol2[0];
+    const myUpdate = {
+        $set: {
+            plot: req.body.plot || currentMovie.plot,
+            rated: req.body.rated || currentMovie.rated,
+            cast: req.body.cast || currentMovie.cast,
+            poster: req.body.poster || currentMovie.poster,
+            fullplot: req.body.fullplot || currentMovie.plot,
+            languages: req.body.languages || currentMovie.languages,
+            awards: req.body.awards || currentMovie.awards,
+            lastupdated: new Date(),
+            imdb: req.body.imdb || currentMovie.imdb,
+            tomatoes: req.body.tomatoes || currentMovie.tomatoes,
+            reviews: req.body.reviews || currentMovie.reviews
+        }
+    };
+
+    console.log(myUpdate);
+
+    dbo.getDB().collection("TMDB").updateOne(myQuery2, myUpdate)
+    .then(result => {
+        res.status(200).send(`\"${currentMovie.title}\" was updated!`);
+    })
+    .catch(err => res.status(418).send(err));
+});
+
 module.exports = recordRoutes;
