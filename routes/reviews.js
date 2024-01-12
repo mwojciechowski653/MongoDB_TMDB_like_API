@@ -35,7 +35,7 @@ recordRoutes.post("/movies/:movieId/reviews", async function(req, res) {
 
     console.log(reviews);
 
-    await reviews.map(review => {
+    reviews.map(review => {
         if (review.nick == req.body.nick){
             res.status(400).send("Review with this nick already exists");
             checker = 1;
@@ -59,6 +59,45 @@ recordRoutes.post("/movies/:movieId/reviews", async function(req, res) {
     .then(result => {res.status(200).send("Your review was succesfully added"); return})
     .catch(err => res.status(418).send(err))
     
-})
+});
+
+recordRoutes.delete("/movies/:movieId/reviews/:reviewId", async function(req, res) {
+
+    const movieId = req.params.movieId;
+    const reviewId = req.params.reviewId;
+
+    const myMovie = await dbo.getDB().collection("TMDB").aggregate([
+        { $match: {_id: new ObjectId(movieId)}},
+        { $project: {_id: 0, title: 1, reviews: 1}}
+    ]).toArray();
+
+    if (myMovie.length === 0) {
+        res.status(404).send("Movie not find");
+        return
+    };
+
+    let reviews = myMovie[0].reviews;
+    let checker = 0;
+
+    console.log(reviews);
+
+    reviews.map(review => {
+        if (review._id == reviewId){
+            checker = 1;
+        }
+    });
+
+    if (checker == 0){res.status(404).send("Review not found"); return};
+
+    const myQuery = {_id: new ObjectId(movieId)};
+    const myUpdate = {$pull: {reviews: {_id: new ObjectId(reviewId)}}};
+
+    dbo.getDB().collection("TMDB").updateOne(myQuery, myUpdate)
+    .then(result => {
+        res.status(200).send("Your review was deleted");
+        return
+    })
+    .catch(err => res.status(418).send(err))
+});
 
 module.exports = recordRoutes;

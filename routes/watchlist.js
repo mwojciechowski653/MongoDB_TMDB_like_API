@@ -83,6 +83,6 @@ recordRoutes.delete("/watchlist/:movieid", async function(req, res) {
         return
     }).catch(err => res.status(418).send("Something went wrong"));
 
-})
+});
 
 module.exports = recordRoutes;
