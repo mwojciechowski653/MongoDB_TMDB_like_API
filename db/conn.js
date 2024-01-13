@@ -3,7 +3,7 @@ require("dotenv").config({path: "./config.env"});
 const Db = process.env.MONGO_URI;
 const client = new MongoClient(Db);
 
-var _db;
+let _db;
 
 
 async function connectToServer(callback) {

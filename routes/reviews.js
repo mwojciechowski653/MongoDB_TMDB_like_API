@@ -30,7 +30,7 @@ recordRoutes.post("/movies/:movieId/reviews", async function(req, res) {
         return
     };
 
-    let reviews = myMovie[0].reviews;
+    const reviews = myMovie[0].reviews;
     let checker = 0
 
     console.log(reviews);
@@ -76,7 +76,7 @@ recordRoutes.delete("/movies/:movieId/reviews/:reviewId", async function(req, re
         return
     };
 
-    let reviews = myMovie[0].reviews;
+    const reviews = myMovie[0].reviews;
     let checker = 0;
 
     console.log(reviews);
