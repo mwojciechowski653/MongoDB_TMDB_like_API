@@ -6,7 +6,7 @@ const port = process.env.PORT;
 const app = express();
 const dbo = require("./db/conn");
 
-app.use(cors())
+app.use(cors());
 app.use(express.json());
 app.use(require("./routes/users"));
 app.use(require("./routes/tmdb"));
@@ -20,5 +20,5 @@ app.listen(port, () => {
     dbo.connectToServer(function(err){
         if (err) console.error(err);
     });
-    console.log(`Server Started at ${port}`)
-})
+    console.log(`Server Started at ${port}`);
+});

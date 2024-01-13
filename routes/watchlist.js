@@ -46,7 +46,6 @@ recordRoutes.post("/watchlist", async function(req, res) {
     dbo.getDB().collection("Watchlist").updateOne(myQuery, myUpdate, options)
     .then(result => {
         res.status(200).send("New movie is in your watchlist!");
-        return
     }).catch(err => res.status(418).send("Something went wrong"));
 });
 
@@ -76,11 +75,10 @@ recordRoutes.delete("/watchlist/:movieid", async function(req, res) {
 
     const movieTitle = searchedMovie[0].title;
     const myQuery = {login: login};
-    const myUpdate = {"$pull" : {wantToSee: movieTitle}}
+    const myUpdate = {"$pull" : {wantToSee: movieTitle}};
 
     dbo.getDB().collection("Watchlist").updateOne(myQuery, myUpdate).then(result => {
         res.status(200).send(`\"${movieTitle}\" was deleted from your watchlist!`);
-        return
     }).catch(err => res.status(418).send("Something went wrong"));
 
 });

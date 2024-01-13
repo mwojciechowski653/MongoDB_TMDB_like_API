@@ -35,9 +35,9 @@ recordRoutes.post("/movie/watched", async(req,res)=>{
         views: profile.stats.views+1,
         genres: profile.stats.genres,
         watchtime: profile.stats.watchtime+searchedMovie[0].runtime
-    }
+    };
 
-    console.log(profile.stats.genres)
+    console.log(profile.stats.genres);
 
     dbo.getDB().collection("Users").updateOne(myQuery, {$set: profile})
     .then(result => {
@@ -83,7 +83,7 @@ recordRoutes.get("/recommendations", async(req, res) => {
             return [...acc, curr[0]]
         } 
         return [...acc]
-    }, [])
+    }, []);
 
     console.log(favGenres);
 
@@ -107,6 +107,6 @@ recordRoutes.get("/recommendations", async(req, res) => {
         ]).toArray();
 
     res.status(200).send(result2)
-})
+});
 
 module.exports = recordRoutes;

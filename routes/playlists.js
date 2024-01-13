@@ -60,7 +60,6 @@ recordRoutes.post("/playlists", async function(req, res) {
     dbo.getDB().collection("Playlists").insertOne(newPlaylist)
     .then(result => {
         res.status(200).send(result);
-        return
     }).catch(err => res.status(421).send("Something went wrong"));
 });
 
@@ -219,9 +218,8 @@ recordRoutes.delete("/playlists/:playlistsId", async function(req, res) {
 
     dbo.getDB().collection("Playlists").deleteOne(myQuery).then(result => {
         res.status(200).send(`\"${myPlaylistsName}\" was deleted!`);
-        return
     }).catch(err => res.status(418).send("Something went wrong"));
 
-})
+});
 
 module.exports = recordRoutes;

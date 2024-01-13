@@ -9,13 +9,13 @@ let _db;
 async function connectToServer(callback) {
   try {
     _db = client.db("mongo_database");
-    console.log("Connected to MongoDB database")
+    console.log("Connected to MongoDB database");
   } catch(err) {
-    callback(err)
+    callback(err);
   }
-}
+};
 function getDB(){
     return _db
-}
+};
 
-module.exports={connectToServer, getDB}
+module.exports={connectToServer, getDB};

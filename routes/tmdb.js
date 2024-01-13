@@ -36,19 +36,19 @@ recordRoutes.get("/tmdb/movies/search", async function(req, res) {
 
     // title -> cast -> directors -> genres -> year -> runtime
 
-    let result2 = [] 
+    let result2 = [];
     const res1 = await dbo.getDB().collection("TMDB").aggregate([{ $match: {title: searchData.title}},{ $project: {genres: 1, title: 1, year: 1, cast: 1, runtime: 1, directors: 1}},{ $limit: 10}]).toArray();
-    result2.push(res1)
+    result2.push(res1);
     const res2 = await dbo.getDB().collection("TMDB").aggregate([{ $match: {cast: {$all: searchData.cast}}},{ $project: {genres: 1, title: 1, year: 1, cast: 1, runtime: 1, directors: 1}},{ $limit: 10}]).toArray();
-    result2.push(res2)
+    result2.push(res2);
     const res3 = await dbo.getDB().collection("TMDB").aggregate([{ $match: {directors: {$all: searchData.directors}}},{ $project: {genres: 1, title: 1, year: 1, cast: 1, runtime: 1, directors: 1}},{ $limit: 10}]).toArray();
-    result2.push(res3)
+    result2.push(res3);
     const res4 = await dbo.getDB().collection("TMDB").aggregate([{ $match: {genres: {$all: searchData.genres}}},{ $project: {genres: 1, title: 1, year: 1, cast: 1, runtime: 1, directors: 1}},{ $limit: 10}]).toArray();
-    result2.push(res4)
+    result2.push(res4);
     const res5 = await dbo.getDB().collection("TMDB").aggregate([{ $match: {year: searchData.year}},{ $project: {genres: 1, title: 1, year: 1, cast: 1, runtime: 1, directors: 1}},{ $limit: 10}]).toArray();
-    result2.push(res5)
+    result2.push(res5);
     const res6 = await dbo.getDB().collection("TMDB").aggregate([{ $match: {runtime: searchData.runtime}},{ $project: {genres: 1, title: 1, year: 1, cast: 1, runtime: 1, directors: 1}},{ $limit: 10}]).toArray();
-    result2.push(res6)
+    result2.push(res6);
 
     // let result = [];
     // searchData.forEach(async(obj)=>{

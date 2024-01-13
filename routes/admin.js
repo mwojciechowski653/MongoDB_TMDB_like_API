@@ -153,7 +153,7 @@ recordRoutes.put("/admin/movies/:movieId", async function(req, res) {
         return
     };  
 
-    console.log(dataCheckVol2)
+    console.log(dataCheckVol2);
 
     const currentMovie = dataCheckVol2[0];
     const myUpdate = {

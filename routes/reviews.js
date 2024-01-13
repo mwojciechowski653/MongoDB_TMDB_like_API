@@ -31,7 +31,7 @@ recordRoutes.post("/movies/:movieId/reviews", async function(req, res) {
     };
 
     const reviews = myMovie[0].reviews;
-    let checker = 0
+    let checker = 0;
 
     console.log(reviews);
 
@@ -57,7 +57,7 @@ recordRoutes.post("/movies/:movieId/reviews", async function(req, res) {
 
     dbo.getDB().collection("TMDB").updateOne(myQuery, myReview)
     .then(result => {res.status(200).send("Your review was succesfully added"); return})
-    .catch(err => res.status(418).send(err))
+    .catch(err => res.status(418).send(err));
     
 });
 
@@ -95,9 +95,8 @@ recordRoutes.delete("/movies/:movieId/reviews/:reviewId", async function(req, re
     dbo.getDB().collection("TMDB").updateOne(myQuery, myUpdate)
     .then(result => {
         res.status(200).send("Your review was deleted");
-        return
     })
-    .catch(err => res.status(418).send(err))
+    .catch(err => res.status(418).send(err));
 });
 
 module.exports = recordRoutes;
