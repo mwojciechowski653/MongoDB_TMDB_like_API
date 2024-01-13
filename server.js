@@ -14,6 +14,7 @@ app.use(require("./routes/watchlist"));
 app.use(require("./routes/playlists"));
 app.use(require("./routes/reviews"));
 app.use(require("./routes/admin"));
+app.use(require("./routes/recomendations"));
 
 app.listen(port, () => {
     dbo.connectToServer(function(err){
