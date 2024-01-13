@@ -17,7 +17,7 @@ recordRoutes.get("/tmdb/movies/popular", async function(req, res) {
             popularity: {$round: [{$multiply: [ {$toDouble: "$imdb.rating"}, {$toInt: "$imdb.votes"} ]}, 0]} }},
         { $sort: {popularity: -1}},
         { $limit: 5}
-        ]).then(result2 => {return result2.toArray()}).catch(err => res.send(err));
+        ]).toArray();
     res.status(200).send(result);
 });
 
