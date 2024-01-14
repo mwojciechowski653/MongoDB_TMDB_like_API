@@ -23,7 +23,8 @@ recordRoutes.post("/users/register", async function(req, res) {
             views: 0,
             genres: {Drama: 0, Romance: 0, Comedy: 0, Musical: 0, War: 0, Adventure: 0, Crime: 0, Family: 0, Biography: 0, History: 0, Fantasy: 0, "Film-Noir": 0, Action: 0, Thriller: 0, Animation: 0, Horror: 0, Music: 0, Documentary: 0, Western: 0, Short: 0, Mystery: 0, Sport: 0, "Sci-Fi": 0},
             watchtime: 0
-        }
+        },
+        status: "User"
     };
     const myQuery = {login: req.body.login};
 
