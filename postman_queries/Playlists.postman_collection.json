@@ -1,0 +1,191 @@
+{
+	"info": {
+		"_postman_id": "cf8d4ef0-0f90-427f-89c3-503529123425",
+		"name": "Playlists",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "32250340"
+	},
+	"item": [
+		{
+			"name": "playlists",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:5000/playlists?login=Nadia",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"playlists"
+					],
+					"query": [
+						{
+							"key": "login",
+							"value": "Nadia"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "playlists",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"login\": \"Nadia\",\r\n    \"name\": \"Horrorki2\",\r\n    \"movies\": [\"Dracula\", \"The Ghost Wrong Name\", \"Dead of Night\", \"The Invisible Ray\", \"I Walked with a Zombie\"]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:5000/playlists",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"playlists"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "playlists 2",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"login\": \"Ola\",\r\n    \"name\": \"Horrorki2\",\r\n    \"movies\": [\"Cat People\"]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:5000/playlists",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"playlists"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "playlists/:id add",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"type\": \"add\",\r\n    \"movies\": [\"Three Ages\", \"The Ghost Goes West\", \"Dracula\"]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:5000/playlists/65a2b20900efe88c7b2397d0",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"playlists",
+						"65a2b20900efe88c7b2397d0"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "playlists/:id delete",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"type\": \"delete\",\r\n    \"movies\": [\"Three Ages\", \"The Ghost Goes West\", \"Definetely not in playlist\"]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:5000/playlists/65a2b20900efe88c7b2397d0",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"playlists",
+						"65a2b20900efe88c7b2397d0"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "playlists/:id change order",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"type\": \"order\",\r\n    \"title\": \"I Walked with a Zombie\",\r\n    \"order\": 1\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:5000/playlists/65a2b20900efe88c7b2397d0",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"playlists",
+						"65a2b20900efe88c7b2397d0"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "playlists/:id",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:5000/playlists/65a079736fbec5eb30dfe812",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"playlists",
+						"65a079736fbec5eb30dfe812"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

@@ -1,0 +1,62 @@
+{
+	"info": {
+		"_postman_id": "763d2e9a-4c8d-4af8-9e1a-2a987277a52c",
+		"name": "Recommendations",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "32250340"
+	},
+	"item": [
+		{
+			"name": "movie/watched",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"login\": \"Adam\",\r\n    \"title\": \"Three Ages\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:5000/movie/watched",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"movie",
+						"watched"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "recommendations",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:5000/recommendations?login=Marcin",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"recommendations"
+					],
+					"query": [
+						{
+							"key": "login",
+							"value": "Marcin"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

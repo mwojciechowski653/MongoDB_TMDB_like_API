@@ -1,0 +1,72 @@
+[{
+  "_id": {
+    "$oid": "65a2b20900efe88c7b2397d0"
+  },
+  "login": "Nadia",
+  "name": "Horrorki2",
+  "movies": [
+    {
+      "plot": "The ancient vampire Count Dracula arrives in England and begins to prey upon the virtuous young Mina.",
+      "genres": [
+        "Horror"
+      ],
+      "title": "Dracula"
+    },
+    {
+      "plot": "An architect senses impending doom as his half-remembered recurring dream turns into reality. The guests at the country house encourage him to stay as they take turns telling supernatural tales.",
+      "genres": [
+        "Horror"
+      ],
+      "title": "Dead of Night"
+    },
+    {
+      "plot": "A scientist becomes murderous after discovering, and being exposed to the radiation of, a powerful new element called Radium X.",
+      "genres": [
+        "Horror",
+        "Sci-Fi",
+        "Thriller"
+      ],
+      "title": "The Invisible Ray"
+    },
+    {
+      "plot": "A young Canadian nurse (Betsy) comes to the West Indies to care for Jessica, the wife of a plantation manager (Paul Holland). Jessica seems to be suffering from a kind of mental paralysis ...",
+      "genres": [
+        "Horror"
+      ],
+      "title": "I Walked with a Zombie"
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "65a07638e75de4312d95a920"
+  },
+  "login": "Ola",
+  "name": "Horrorki",
+  "movies": [
+    {
+      "plot": "The ancient vampire Count Dracula arrives in England and begins to prey upon the virtuous young Mina.",
+      "genres": [
+        "Horror"
+      ],
+      "title": "Dracula"
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "65a0767e84cb82e36a95de16"
+  },
+  "login": "Ola",
+  "name": "Horrorki2",
+  "movies": [
+    {
+      "plot": "An American man marries a Serbian immigrant who fears that she will turn into the cat person of her homeland's fables if they are intimate together.",
+      "genres": [
+        "Horror",
+        "Thriller"
+      ],
+      "title": "Cat People"
+    }
+  ]
+}]

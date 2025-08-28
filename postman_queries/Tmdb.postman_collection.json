@@ -1,0 +1,152 @@
+{
+	"info": {
+		"_postman_id": "06c5a941-1d10-485e-aab2-902382a5cb76",
+		"name": "Tmdb",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "32250340"
+	},
+	"item": [
+		{
+			"name": "tmdb",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:5000/tmdb",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"tmdb"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "tmdb/movies/popular",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:5000/tmdb/movies/popular",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"tmdb",
+						"movies",
+						"popular"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "tmdb/movies/:id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:5000/tmdb/movies/573a1391f29313caabcd79e4",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"tmdb",
+						"movies",
+						"573a1391f29313caabcd79e4"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "tmdb/movies/search",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\": \"Three Ages\",\r\n    \"cast\": [\"Sybil Seely\"],\r\n    \"directors\": [\"Maurice Tourneur\"]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:5000/tmdb/movies/search",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"tmdb",
+						"movies",
+						"search"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "tmdb/movies/search 2",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"genres\": [\"Sci-Fi\"],\r\n    \"year\": 1918,\r\n    \"runtime\": 83\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:5000/tmdb/movies/search",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"tmdb",
+						"movies",
+						"search"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "tmdb/movies/genres",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:5000/tmdb/movies/genres",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"tmdb",
+						"movies",
+						"genres"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

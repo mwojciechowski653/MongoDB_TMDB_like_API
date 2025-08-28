@@ -1,0 +1,258 @@
+[{
+  "_id": {
+    "$oid": "659e96cad8194053990f1c3d"
+  },
+  "login": "Jan",
+  "password": "Pass3",
+  "sex": "male",
+  "mail": "example@wp.pl",
+  "phone": "123987654",
+  "birth": {
+    "$date": "2002-04-21T22:00:00.000Z"
+  },
+  "stats": {
+    "views": 0,
+    "genres": {
+      "Drama": 0,
+      "Romance": 0,
+      "Comedy": 0,
+      "Musical": 0,
+      "War": 0,
+      "Adventure": 0,
+      "Crime": 0,
+      "Family": 0,
+      "Biography": 0,
+      "History": 0,
+      "Fantasy": 0,
+      "Film-Noir": 0,
+      "Action": 0,
+      "Thriller": 0,
+      "Animation": 0,
+      "Horror": 0,
+      "Music": 0,
+      "Documentary": 0,
+      "Western": 0,
+      "Short": 0,
+      "Mystery": 0,
+      "Sport": 0,
+      "Sci-Fi": 0
+    },
+    "watchtime": 0
+  },
+  "status": "Premium"
+},
+{
+  "_id": {
+    "$oid": "659e967bd8194053990f1c3b"
+  },
+  "login": "Marcin",
+  "password": "Pass2",
+  "sex": "male",
+  "mail": "example@gmail.com",
+  "phone": "123456789",
+  "birth": {
+    "$date": "2003-10-14T00:00:00.000Z"
+  },
+  "status": "User",
+  "stats": {
+    "views": 5,
+    "genres": {
+      "Drama": 0,
+      "Romance": 0,
+      "Comedy": 4,
+      "Musical": 0,
+      "War": 0,
+      "Adventure": 0,
+      "Crime": 0,
+      "Family": 0,
+      "Biography": 0,
+      "History": 0,
+      "Fantasy": 0,
+      "Film-Noir": 0,
+      "Action": 0,
+      "Thriller": 0,
+      "Animation": 0,
+      "Horror": 1,
+      "Music": 0,
+      "Documentary": 0,
+      "Western": 0,
+      "Short": 0,
+      "Mystery": 0,
+      "Sport": 0,
+      "Sci-Fi": 0
+    },
+    "watchtime": 337
+  }
+},
+{
+  "_id": {
+    "$oid": "659e96ebd8194053990f1c3e"
+  },
+  "login": "Nadia",
+  "password": "Pass4",
+  "sex": "female",
+  "mail": "example@o2.pl",
+  "phone": "987123456",
+  "birth": {
+    "$date": "2004-01-08T23:00:00.000Z"
+  },
+  "stats": {
+    "views": 4,
+    "genres": {
+      "Drama": 0,
+      "Romance": 0,
+      "Comedy": 2,
+      "Musical": 0,
+      "War": 0,
+      "Adventure": 0,
+      "Crime": 0,
+      "Family": 0,
+      "Biography": 0,
+      "History": 0,
+      "Fantasy": 0,
+      "Film-Noir": 0,
+      "Action": 0,
+      "Thriller": 0,
+      "Animation": 0,
+      "Horror": 2,
+      "Music": 0,
+      "Documentary": 0,
+      "Western": 0,
+      "Short": 0,
+      "Mystery": 0,
+      "Sport": 0,
+      "Sci-Fi": 0
+    },
+    "watchtime": 296
+  },
+  "status": "Admin"
+},
+{
+  "_id": {
+    "$oid": "65a928dbcb25a8434bba49fe"
+  },
+  "login": "Ola1",
+  "password": "Pass6",
+  "sex": "female",
+  "mail": "example@onet.pl",
+  "phone": "192837465",
+  "birth": {
+    "$date": "2001-08-31T22:00:00.000Z"
+  },
+  "stats": {
+    "views": 0,
+    "genres": {
+      "Drama": 0,
+      "Romance": 0,
+      "Comedy": 0,
+      "Musical": 0,
+      "War": 0,
+      "Adventure": 0,
+      "Crime": 0,
+      "Family": 0,
+      "Biography": 0,
+      "History": 0,
+      "Fantasy": 0,
+      "Film-Noir": 0,
+      "Action": 0,
+      "Thriller": 0,
+      "Animation": 0,
+      "Horror": 0,
+      "Music": 0,
+      "Documentary": 0,
+      "Western": 0,
+      "Short": 0,
+      "Mystery": 0,
+      "Sport": 0,
+      "Sci-Fi": 0
+    },
+    "watchtime": 0
+  },
+  "status": "User"
+},
+{
+  "_id": {
+    "$oid": "659e96abd8194053990f1c3c"
+  },
+  "login": "Adam",
+  "password": "Pass2",
+  "sex": "male",
+  "mail": "example@yahoo.com",
+  "phone": "987654321",
+  "birth": {
+    "$date": "2003-03-09T23:00:00.000Z"
+  },
+  "stats": {
+    "views": 1,
+    "genres": {
+      "Drama": 0,
+      "Romance": 0,
+      "Comedy": 1,
+      "Musical": 0,
+      "War": 0,
+      "Adventure": 0,
+      "Crime": 0,
+      "Family": 0,
+      "Biography": 0,
+      "History": 0,
+      "Fantasy": 0,
+      "Film-Noir": 0,
+      "Action": 0,
+      "Thriller": 0,
+      "Animation": 0,
+      "Horror": 0,
+      "Music": 0,
+      "Documentary": 0,
+      "Western": 0,
+      "Short": 0,
+      "Mystery": 0,
+      "Sport": 0,
+      "Sci-Fi": 0
+    },
+    "watchtime": 63
+  },
+  "status": "Premium"
+},
+{
+  "_id": {
+    "$oid": "659e9708d8194053990f1c3f"
+  },
+  "login": "Ola",
+  "password": "Pass5",
+  "sex": "female",
+  "mail": "example@onet.pl",
+  "phone": "192837465",
+  "birth": {
+    "$date": "2001-08-31T22:00:00.000Z"
+  },
+  "stats": {
+    "views": 2,
+    "genres": {
+      "Drama": 0,
+      "Romance": 0,
+      "Comedy": 1,
+      "Musical": 0,
+      "War": 0,
+      "Adventure": 0,
+      "Crime": 0,
+      "Family": 1,
+      "Biography": 0,
+      "History": 0,
+      "Fantasy": 1,
+      "Film-Noir": 0,
+      "Action": 0,
+      "Thriller": 0,
+      "Animation": 1,
+      "Horror": 0,
+      "Music": 0,
+      "Documentary": 0,
+      "Western": 0,
+      "Short": 0,
+      "Mystery": 0,
+      "Sport": 0,
+      "Sci-Fi": 0
+    },
+    "watchtime": 146
+  },
+  "status": "User"
+}]
