@@ -1,0 +1,8 @@
+node_modules
+.git
+.gitignore
+mongo-data
+postman_queries
+*.log
+*.md
+database_init
