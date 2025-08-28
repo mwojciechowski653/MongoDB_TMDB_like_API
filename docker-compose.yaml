@@ -9,13 +9,13 @@ services:
       - "27017:27017"
     # Trwały wolumin z danymi + automatyczny import z JSON
     volumes:
-      - ./mongo-data:/data/db
-      - ./database_init:/docker-entrypoint-initdb.d:ro
+      - ./app/mongo-data:/data/db
+      - ./app/database_init:/docker-entrypoint-initdb.d:ro
     environment:
       MONGO_INITDB_DATABASE: mongo_database
 
   api:
-    build: .
+    build: ./app
     container_name: api
     restart: unless-stopped
     depends_on:
